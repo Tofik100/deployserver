@@ -1,20 +1,16 @@
-on: 
-push:
-branches:
-- master
+on: push
 name: 🚀 Production Deploy
 jobs:
-  FTP-Deploy-Action:
-    name: 🎉 FTP-Deploy-Action
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    # - name: 🚚 Get latest code
+    - name: 🚚 Get latest code
       uses: actions/checkout@v2
-      with:
-        fetch-depht: 2
-    - name: FTP-Deploy-Action
+    
+    - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
-        server: 192.185.129.43
+        server: ftp.192.185.129.43
         username: demo
         password: ${{ secrets.ftp_password }}
