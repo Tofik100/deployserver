@@ -4,14 +4,15 @@ branches:
 - master
 name: 🚀 Production Deploy
 jobs:
-  web-deploy:
+  FTP-Deploy-Action:
     name: 🎉 FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
+    # - name: 🚚 Get latest code
       uses: actions/checkout@v2
-    
-    - name: 📂 Sync files
+      with:
+        fetch-depht: 2
+    - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
         server: ftp://192.185.129.43
