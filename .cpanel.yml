@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/ctpormmb/public_html/test
+    - /bin/cp * $DEPLOYPATH
