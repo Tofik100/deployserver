@@ -1,15 +1,15 @@
 
 name: Publish Website to CPanel
-on:push
-
-    # branches:
-    #   - master
+on:
+  push:
+    branches:
+      - master
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2.1.0
+    - uses: actions/checkout@v2.1.0add  .
       with:
         fetch-depth: 2
     - name: FTP-Deploy-Action
@@ -18,5 +18,4 @@ jobs:
         ftp-server: ${{ secrets.FTP_SERVER }}
         ftp-username: ${{ secrets.FTP_USERNAME }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
-        git-ftp-args: --insecure
 
